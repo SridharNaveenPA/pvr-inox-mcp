@@ -37,6 +37,9 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # ntfy: install the app, pick a topic name, add NTFY_TOPIC as a
+          # repo secret. Sent at priority 5 - breaks through a silenced phone.
+          # NTFY_SERVER defaults to ntfy.sh if left unset.
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           NTFY_SERVER: ${{ secrets.NTFY_SERVER }}
           PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
@@ -47,6 +50,10 @@ jobs:
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           GENERIC_WEBHOOK_URL: ${{ secrets.GENERIC_WEBHOOK_URL }}
+          # GitHub issue channel - zero extra accounts. The Actions run already
+          # has GITHUB_TOKEN; GITHUB_REPOSITORY is injected automatically.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
           # The chain refuses GitHub's runners, so fetch through our own
           # deployed service, whose IP it accepts.
           PVR_PROXY_BASE: ${{ secrets.PVR_PROXY_BASE }}
